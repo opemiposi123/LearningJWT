@@ -1,0 +1,72 @@
+﻿@model List<LearningJWT.Models.UserModelDto>
+@{
+	ViewData["Title"] = "Student List";
+
+}
+<section>
+	<div class="container p-3">
+		<div class="row pt-4">
+			<div class="col-6">
+				<h2 class="text-primary">User list</h2>
+			</div>
+			<div class="col-6 text-end">
+				<a asp-controller="User" asp-action="CreateUser" class="btn btn-primary">
+					<i class="bi bi-person-plus-fill"></i> Create
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Total Student (@Model.Count)</h3>
+
+					</div>
+					<div class="card-body">
+						<table id="example1" class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>UserName</th>
+									<th>GivenName</th>
+									<th>EmailAddress</th>
+									<th>Role</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.Username</td>
+										<td>@item.GivenName</td>
+										<td>@item.EmailAddress</td>
+										<td>@item.Role</td>
+										@*<td>
+											<a asp-controller="Student" asp-action="ViewStudentDetail" asp-route-id="@item.Id" class="btn btn-success">ViewStudent</a>
+										</td>*@
+									</tr>
+								}
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>UserName</th>
+									<th>GivenName</th>
+									<th>EmailAdress</th>
+									<th>Role</th> 
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</section>
